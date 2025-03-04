@@ -36,7 +36,7 @@ export const signup = async (req: Request, res: Response) => {
       user_id: userId,
       login,
       email,
-      is_active: false,
+      is_active: process.env.NEW_USER_IS_ACTIVATE_BY_DEFAULT || false,
       is_root: false,
       is_admin: false,
       is_moderator: false,
