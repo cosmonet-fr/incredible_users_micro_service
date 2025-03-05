@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  app:
+    image: node:22
+    container_name: typescript-app
+    working_dir: /usr/src/app
+    volumes:
+      - ./src:/usr/src/app/src
+      - ./dist:/usr/src/app/dist
+      - ./secret.key:/usr/src/app/secret.key
+      - ./public.key:/usr/src/app/public.key
+      - ./.env:/usr/src/app/.env
+    ports:
+      - "80:80"
+    environment:
+      - PORT=80
+      - NEW_USER_IS_ACTIVATE_BY_DEFAULT=false
+      - DB_HOST=my-host.org
+      - DB_PORT=5432
+      - DB_NAME=MY-BD-NAME
+      - DB_USERNAME=MY-USER-NAME
+      - DB_PASSWORD=MY-PASS
+    command: sh -c "npm install && npm run build && npm run start"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
