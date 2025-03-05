@@ -1,4 +1,5 @@
 import { Table, Column, Model, DataType, ForeignKey, BelongsTo } from 'sequelize-typescript';
+import { InferCreationAttributes } from 'sequelize';
 import { Country } from './Country';
 
 @Table({
@@ -32,7 +33,7 @@ export class User extends Model<User> {
     type: DataType.STRING(255),
     allowNull: true
   })
-  avatar!: string;
+  avatar!: string | null;;
 
   @Column({
     type: DataType.STRING(255),

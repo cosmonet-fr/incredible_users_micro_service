@@ -1,4 +1,5 @@
 import { Table, Column, Model, DataType, ForeignKey, BelongsTo } from 'sequelize-typescript';
+import { InferCreationAttributes } from 'sequelize';
 import { User } from './User';
 
 @Table({

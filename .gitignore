@@ -3,3 +3,4 @@ package-lock.json
 .env
 public.key
 secret.key
+dist
