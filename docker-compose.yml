@@ -6,8 +6,7 @@ services:
     container_name: typescript-app
     working_dir: /usr/src/app
     volumes:
-      - ./src:/usr/src/app/src
-      - ./dist:/usr/src/app/dist
+      - .:/usr/src/app
       - ./secret.key:/usr/src/app/secret.key
       - ./public.key:/usr/src/app/public.key
       - ./.env:/usr/src/app/.env
