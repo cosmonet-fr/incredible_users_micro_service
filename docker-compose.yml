@@ -6,9 +6,9 @@ services:
     container_name: typescript-app
     working_dir: /usr/src/app
     volumes:
-      - .:/usr/src/app
-      - ./secret.key:/usr/src/app/secret.key
-      - ./public.key:/usr/src/app/public.key
+      - .:/usr/src/app  # Monte la racine du projet, incluant package.json
+      - ./secret.key:/usr/src/app/secret.key  # Monte le fichier secret.key
+      - ./public.key:/usr/src/app/public.key  # Monte le fichier public.key
       - ./.env:/usr/src/app/.env
     ports:
       - "80:80"
